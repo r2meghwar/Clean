@@ -214,7 +214,8 @@ tree3 = Node '6' (Node '4' (Node '2' Leaf Leaf) Leaf) (Node '8' (Node '7' Leaf L
 
 countNode :: (Tree a) -> Int
 countNode Leaf = 0
-countNode (Node x l r) = 1 + max (countNode l) (countNode r)
+countNode (Node x Leaf Leaf) = 1
+countNode (Node x l r) = countNode l + countNode r
 
 //Start = countNode tree1 // 4
 //Start = countNode tree2 // 5
